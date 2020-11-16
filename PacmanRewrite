@@ -1,0 +1,57 @@
+Byte Ghost[8];
+void setup(){
+   set = 13;
+   for (i = 0; i < 8; i++){
+       Ghost[i] = set+=2; 
+   }
+}
+void loop(){
+   checkPosition();
+   Int currentMillis = Millis();
+   If (currentMillis - previousMillis>=time){
+       previousMillis = currentMillis;
+       lcd.clear();
+       moverEnemigos();
+       moverPersonaje();
+    
+
+   }
+}
+
+void moverEnemigos(){
+   for (i = 0; i < 8; i++){
+       Ghost[i] = Ghost[i] - 1;
+       if ((i%2)==0){
+           lcd.setCursor(Ghost[i], 0);
+           lcd.write((byte)1); <- Sprite
+       } else {
+           lcd.setCursor(Ghost[i], 1);
+           lcd.write((byte)1);
+       }
+       if (Ghost[i] < 0) Ghost[i] = 15;
+   }
+   
+
+
+}
+
+
+int moverPersonaje(){    
+
+
+
+}
+
+
+void checkPosition(int X */, int Y /*){
+// Perder
+   for (i = 0; i < 8; i++){
+      if ((i%2)==0){
+         if (Ghost[i] == X */&&Y==0/*) Lose();
+         } else {
+         if (Ghost[i] == X*/&& Y==1/*) Lose();
+        { 
+   }
+// Ganar
+   if (X == 15) Win();
+}
